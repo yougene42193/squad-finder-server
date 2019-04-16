@@ -3,6 +3,7 @@ const path = require('path');
 const express = require('express');
 const xss = require('xss');
 const ProfilesService = require('./profiles-service');
+const { requireAuth } = require('../middleware/jwt-auth')
 
 const profilesRouter = express.Router();
 const jsonParser = express.json();
