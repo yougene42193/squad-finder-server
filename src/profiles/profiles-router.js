@@ -3,7 +3,7 @@ const path = require('path');
 const express = require('express');
 const xss = require('xss');
 const ProfilesService = require('./profiles-service');
-const { requireAuth } = require('../middleware/jwt-auth')
+const { requireAuth } = require('../middleware/jwt-auth');
 
 const profilesRouter = express.Router();
 const jsonParser = express.json();
@@ -52,53 +52,90 @@ profilesRouter
 profilesRouter
   .route('/:profile_id')
   .all((req, res, next) => {
-      const { profile_id } = req.params;
-      ProfilesService.getById(
-        req.app.get('db'),
-        profile_id
-      )
-        .then(profile => {
-            if (!profile) {
-                return res.status(400).json({
-                    error: { message: `Profile doesn't exist`}
-                });
-            }
-            res.profile = profile;
-            next();
-        })
-        .catch(next);
+    const { profile_id } = req.params;
+    ProfilesService.getById(
+      req.app.get('db'),
+      profile_id
+    )
+      .then(profile => {
+        if (!profile) {
+          return res.status(400).json({
+            error: { message: 'Profile doesn\'t exist'}
+          });
+        }
+        res.profile = profile;
+        next();
+      })
+      .catch(next);
   })
   .get((req, res, next) => {
-      res.json(serializeProfile(res.profile));
+    res.json(serializeProfile(res.profile));
   })
   .delete((req, res, next) => {
-      ProfilesService.deleteProfile(
-          req.app.get('db'),
-          req.params.profile_id
-      )
-        .then(() => {
-            res.status(204).end();
-        })
-        .catch(next);
+    ProfilesService.deleteProfile(
+      req.app.get('db'),
+      req.params.profile_id
+    )
+      .then(() => {
+        res.status(204).end();
+      })
+      .catch(next);
   })
   .patch(jsonParser, (req, res, next) => {
-      const { newProfile } = req.body;
-      if(!newProfile) {
-          return res.status(400).json({
-              error: {
-                  message: 'Request must contain profile name'
-              }
-          });
-      }
-      ProfilesService.updateProfile(
-          req.app.get('db'),
-          req.params.profile_id,
+    const { profile_name, platform, game, region, playstyle } = req.body;
+    if(!profile_name) {
+      return res.status(400).json({
+        error: {
+          message: 'Request must contain profile name'
+        }
+      });
+    }
+    if(!platform) {
+      return res.status(400).json({
+        error: {
+          message: 'Request must contain platform'
+        }
+      });
+    }
+    if(!game) {
+      return res.status(400).json({
+        error: {
+          message: 'Request must contain game'
+        }
+      });
+    }
+    if(!region) {
+      return res.status(400).json({
+        error: {
+          message: 'Request must contain region'
+        }
+      });
+    }
+    if(!playstyle) {
+      return res.status(400).json({
+        error: {
+          message: 'Request must contain playstyle'
+        }
+      });
+    }
 
-      )
-        .then(() => {
-            res.status(204).end();
-        })
-        .catch(next);
-  })
+    const profileToUpdate = {
+      profile_name,
+      platform,
+      game,
+      region,
+      playstyle
+    }
+
+    ProfilesService.updateProfile(
+      req.app.get('db'),
+      req.params.profile_id,
+      profileToUpdate
+    )
+      .then(() => {
+        res.status(204).end();
+      })
+      .catch(next);
+  });
 
 module.exports = profilesRouter;
