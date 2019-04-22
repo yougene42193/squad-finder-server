@@ -7,6 +7,7 @@ const { NODE_ENV } = require('./config')
 const profilesRouter = require('./profiles/profiles-router')
 const authRouter = require('./auth/auth-router')
 const usersRouter = require('./users/users-router')
+const favoritesRouter = require('./favorites/favorites-router')
 
 const app = express();
 
@@ -19,6 +20,7 @@ app.use(cors());
 app.use(helmet());
 
 app.use('/api/profiles', profilesRouter)
+app.use('/api/favorites', favoritesRouter)
 app.use('/api/auth', authRouter)
 app.use('/api/users', usersRouter)
 
