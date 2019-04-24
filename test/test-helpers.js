@@ -51,7 +51,7 @@ function makeProfilesArray(users) {
       playstyle: 'Semi-Hardcore',
     },
     {
-      id: 1,
+      id: 3,
       profile_name: 'testprofile3',
       platform: 'PC',
       game: 'COD Blackout',
@@ -59,7 +59,7 @@ function makeProfilesArray(users) {
       playstyle: 'Hardcore',
     },
     {
-      id: 1,
+      id: 4,
       profile_name: 'testprofile4',
       platform: 'Xbox One',
       game: 'PUBG',
@@ -67,7 +67,7 @@ function makeProfilesArray(users) {
       playstyle: 'Casual',
     },
     {
-      id: 1,
+      id: 5,
       profile_name: 'testprofile5',
       platform: 'Xbox One',
       game: 'Apex Legends',

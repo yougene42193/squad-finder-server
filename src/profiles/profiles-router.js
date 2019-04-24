@@ -29,8 +29,10 @@ profilesRouter
   })
   .post(jsonParser, (req, res, next) => {
     const { profile_name, platform, game, region, playstyle } = req.body;
-    const newProfile = { profile_name, platform, game, region, playstyle };
-    if (!newProfile) {
+    const newProfile = { profile_name, platform, game, region, playstyle }
+    for (const field of ['profile_name', 'platform', 'game', 'region', 'playstyle'])
+    
+    if (!req.body[field]) {
       return res.status(400).json({
         error: { message: 'Missing item from profile in request body' }
       });
@@ -48,6 +50,18 @@ profilesRouter
       })
       .catch(next);
   });
+
+profilesRouter
+  /*.route('/:user')
+  .get((req, res, next) => {
+    const knexInstance = req.app.get('db');
+    ProfilesService.getAllProfiles(knexInstance)
+      .then(profile => {
+        if(profile.user === req.user.username) {
+          if(req.query) 
+        }
+      })
+  }*/
 
 profilesRouter
   .route('/:profile_id')
@@ -70,6 +84,9 @@ profilesRouter
   })
   .get((req, res, next) => {
     res.json(serializeProfile(res.profile));
+  })
+  .post(jsonParser, (req, res, next) => {
+    
   })
   .delete((req, res, next) => {
     ProfilesService.deleteProfile(

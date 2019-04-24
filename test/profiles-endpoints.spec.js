@@ -84,7 +84,7 @@ describe('Profiles Endpoints', function() {
       });
     });
   });
-  describe.only('POST /api/profiles', () => {
+  describe('POST /api/profiles', () => {
     it('creates a profile, responding with a 201 and the new profile', function() {
       const newProfile = {
         profile_name: 'testprofile1',
@@ -104,7 +104,6 @@ describe('Profiles Endpoints', function() {
           expect(res.body.playstyle).to.eql(newProfile.playstyle);
           expect(res.body).to.have.property('id');
           expect(res.headers.location).to.eql(`/api/profiles/${res.body.id}`);
-          expect(actual).to.eql(expected);
         })
         .then(res => 
           supertest(app)
@@ -117,11 +116,11 @@ describe('Profiles Endpoints', function() {
 
     requiredFields.forEach(field => {
       const newProfile = {
-        profile_name: 'testprofile1',
-        platform: 'Xbox One',
-        game: 'Apex Legends',
-        region: 'NA',
-        playstyle: 'Casual'
+        profile_name: '',
+        platform: '',
+        game: '',
+        region: '',
+        playstyle: ''
       };
 
       it(`responds with 400 and an error message when the '${field}' is missing`, () => {
