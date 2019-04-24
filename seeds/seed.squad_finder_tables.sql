@@ -16,31 +16,31 @@ VALUES
     ('demouser7', 'demopassword7'),
     ('demouser8', 'demopassword8');
 
-INSERT INTO squad_finder_profiles (profile_name, platform, game, region, playstyle, user_id)
+INSERT INTO squad_finder_profiles (profile_name, platform, game, region, user_id)
 VALUES
-    ('demoprofile', 'Xbox One', 'Apex Legends', 'NA', 'Casual', 1),
-    ('demoprofile1', 'Xbox One', 'Fortnite', 'NA', 'Semi-Hardcore', 2),
-    ('demoprofile2', 'Playstation 4', 'COD Blackout', 'NA', 'Hardcore', 3),
-    ('demoprofile3', 'PC', 'PUBG', 'EU', 'Casual', 4),
-    ('demoprofile4', 'PC', 'Fortnite', 'NA', 'Casual', 5),
-    ('demoprofile5', 'Xbox One', 'PUBG', 'EU', 'Casual', 6),
-    ('demoprofile6', 'PC', 'Apex Legends', 'EUW', 'Semi-Hardcore', 7),
-    ('demoprofile7', 'Playstation 4', 'Apex Legends', 'NA', 'Hardcore', 8);
-    /*('demoprofile8', 'Xbox One', 'Apex Legends', 'EU', 'Casual'),
-    ('demoprofile9', 'PC', 'Fortnite', 'EUW', 'Casual'),
-    ('demoprofile10', 'Playstation 4', 'COD Blackout', 'AS', 'Casual'),
-    ('demoprofile11', 'PC', 'PUBG', 'BR', 'Semi-Hardcore'),
-    ('demoprofile12', 'Xbox One', 'Apex Legends', 'EUW', 'Casual'),
-    ('demoprofile13', 'Xbox One', 'Fortnite', 'AS', 'Casual'),
-    ('demoprofile14', 'PC', 'COD Blackout', 'BR', 'Semi-Hardcore'),
-    ('demoprofile15', 'Playstation 4', 'Fortnite', 'EU', 'Casual'),
-    ('demoprofile16', 'Playstation 4', 'Apex Legends', 'NA', 'Hardcore'),
-    ('demoprofile17', 'PC', 'Apex Legends', 'EU', 'Casual'),
-    ('demoprofile18', 'Xbox One', 'Apex Legends', 'NA', 'Semi-Hardcore'),
-    ('demoprofile19', 'Playstation 4', 'Apex Legends', 'NA', 'Semi-Hardcore');
+    ('demoprofile', 'Xbox One', 'Apex Legends', 'NA', 1),
+    ('demoprofile1', 'Xbox One', 'Fortnite', 'NA', 2),
+    ('demoprofile2', 'Playstation 4', 'COD Blackout', 'NA', 3),
+    ('demoprofile3', 'PC', 'PUBG', 'EU', 4),
+    ('demoprofile4', 'PC', 'Fortnite', 'NA', 5),
+    ('demoprofile5', 'Xbox One', 'PUBG', 'EU', 6),
+    ('demoprofile6', 'PC', 'Apex Legends', 'EUW', 7),
+    ('demoprofile7', 'Playstation 4', 'Apex Legends', 'NA', 8);
+    /*('demoprofile8', 'Xbox One', 'Apex Legends', 'EU'),
+    ('demoprofile9', 'PC', 'Fortnite', 'EUW'),
+    ('demoprofile10', 'Playstation 4', 'COD Blackout', 'AS'),
+    ('demoprofile11', 'PC', 'PUBG', 'BR'),
+    ('demoprofile12', 'Xbox One', 'Apex Legends', 'EUW'),
+    ('demoprofile13', 'Xbox One', 'Fortnite', 'AS'),
+    ('demoprofile14', 'PC', 'COD Blackout', 'BR'),
+    ('demoprofile15', 'Playstation 4', 'Fortnite', 'EU'),
+    ('demoprofile16', 'Playstation 4', 'Apex Legends', 'NA'),
+    ('demoprofile17', 'PC', 'Apex Legends', 'EU'),
+    ('demoprofile18', 'Xbox One', 'Apex Legends', 'NA'),
+    ('demoprofile19', 'Playstation 4', 'Apex Legends', 'NA');
     */
 
-INSERT INTO squad_finder_favorites (profile_name, platform, game, region, playstyle)
+INSERT INTO squad_finder_favorites (profile_name)
 VALUES
     ('demoprofile3'),
     ('demoprofile4'),

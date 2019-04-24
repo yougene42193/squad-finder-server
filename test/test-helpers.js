@@ -40,7 +40,6 @@ function makeProfilesArray(users) {
       platform: 'Xbox One',
       game: 'Apex Legends',
       region: 'NA',
-      playstyle: 'Casual',
     },
     {
       id: 2,
@@ -48,7 +47,6 @@ function makeProfilesArray(users) {
       platform: 'Playstation 4',
       game: 'Fortnite',
       region: 'EU',
-      playstyle: 'Semi-Hardcore',
     },
     {
       id: 3,
@@ -56,7 +54,6 @@ function makeProfilesArray(users) {
       platform: 'PC',
       game: 'COD Blackout',
       region: 'EUW',
-      playstyle: 'Hardcore',
     },
     {
       id: 4,
@@ -64,7 +61,6 @@ function makeProfilesArray(users) {
       platform: 'Xbox One',
       game: 'PUBG',
       region: 'AS',
-      playstyle: 'Casual',
     },
     {
       id: 5,
@@ -72,7 +68,6 @@ function makeProfilesArray(users) {
       platform: 'Xbox One',
       game: 'Apex Legends',
       region: 'BR',
-      playstyle: 'Casual',
     },
   ];
 }

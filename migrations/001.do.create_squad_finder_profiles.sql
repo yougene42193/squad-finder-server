@@ -3,6 +3,5 @@ CREATE TABLE squad_finder_profiles (
     profile_name TEXT NOT NULL UNIQUE,
     platform TEXT NOT NULL,
     game TEXT NOT NULL,
-    region TEXT NOT NULL,
-    playstyle TEXT NOT NULL
+    region TEXT NOT NULL
 );

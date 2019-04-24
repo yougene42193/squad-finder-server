@@ -3,7 +3,7 @@ const knex = require('knex');
 const app = require('../src/app');
 const { makeProfilesArray, makeUsersArray } = require('./test-helpers');
 
-describe('Profiles Endpoints', function() {
+describe.only('Profiles Endpoints', function() {
   let db;
 
   before('make knex instance', () => {
@@ -91,7 +91,6 @@ describe('Profiles Endpoints', function() {
         platform: 'Xbox One',
         game: 'Apex Legends',
         region: 'NA',
-        playstyle: 'Casual'
       };
       return supertest(app)
         .post('/api/profiles')
@@ -101,7 +100,6 @@ describe('Profiles Endpoints', function() {
           expect(res.body.platform).to.eql(newProfile.platform);
           expect(res.body.game).to.eql(newProfile.game);
           expect(res.body.region).to.eql(newProfile.region);
-          expect(res.body.playstyle).to.eql(newProfile.playstyle);
           expect(res.body).to.have.property('id');
           expect(res.headers.location).to.eql(`/api/profiles/${res.body.id}`);
         })
@@ -112,15 +110,14 @@ describe('Profiles Endpoints', function() {
         );
     });
 
-    const requiredFields = ['profile_name', 'platform', 'game', 'region', 'playstyle'];
+    const requiredFields = ['profile_name', 'platform', 'game', 'region'];
 
     requiredFields.forEach(field => {
       const newProfile = {
         profile_name: '',
         platform: '',
         game: '',
-        region: '',
-        playstyle: ''
+        region: ''
       };
 
       it(`responds with 400 and an error message when the '${field}' is missing`, () => {

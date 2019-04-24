@@ -14,7 +14,6 @@ const serializeProfile = (profile) => ({
   platform: profile.platform,
   game: profile.game,
   region: profile.region,
-  playstyle: profile.playstyle,
 });
 
 favoritesRouter
@@ -29,8 +28,8 @@ favoritesRouter
   })
   
   .post(jsonParser, (req, res, next) => {
-    const { profile_name, platform, game, region, playstyle } = req.body;
-    const newProfile = { profile_name, platform, game, region, playstyle };
+    const { profile_name, platform, game, region } = req.body;
+    const newProfile = { profile_name, platform, game, region };
     if (!newProfile) {
       return res.status(400).json({
         error: { message: 'Missing item from profile in request body' }

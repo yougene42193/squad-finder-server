@@ -14,7 +14,6 @@ const serializeProfile = (profile) => ({
   platform: profile.platform,
   game: profile.game,
   region: profile.region,
-  playstyle: profile.playstyle,
 });
 
 profilesRouter
@@ -28,15 +27,15 @@ profilesRouter
       .catch(next);
   })
   .post(jsonParser, (req, res, next) => {
-    const { profile_name, platform, game, region, playstyle } = req.body;
-    const newProfile = { profile_name, platform, game, region, playstyle }
-    for (const field of ['profile_name', 'platform', 'game', 'region', 'playstyle'])
+    const { profile_name, platform, game, region } = req.body;
+    const newProfile = { profile_name, platform, game, region };
+    for (const field of ['profile_name', 'platform', 'game', 'region'])
     
-    if (!req.body[field]) {
-      return res.status(400).json({
-        error: { message: 'Missing item from profile in request body' }
-      });
-    }
+      if (!req.body[field]) {
+        return res.status(400).json({
+          error: { message: 'Missing item from profile in request body' }
+        });
+      }
 
     ProfilesService.insertProfile(
       req.app.get('db'),
@@ -51,8 +50,8 @@ profilesRouter
       .catch(next);
   });
 
-profilesRouter
-  /*.route('/:user')
+profilesRouter;
+/*.route('/:user')
   .get((req, res, next) => {
     const knexInstance = req.app.get('db');
     ProfilesService.getAllProfiles(knexInstance)
@@ -99,7 +98,7 @@ profilesRouter
       .catch(next);
   })
   .patch(jsonParser, (req, res, next) => {
-    const { profile_name, platform, game, region, playstyle } = req.body;
+    const { profile_name, platform, game, region } = req.body;
     if(!profile_name) {
       return res.status(400).json({
         error: {
@@ -128,21 +127,13 @@ profilesRouter
         }
       });
     }
-    if(!playstyle) {
-      return res.status(400).json({
-        error: {
-          message: 'Request must contain playstyle'
-        }
-      });
-    }
 
     const profileToUpdate = {
       profile_name,
       platform,
       game,
       region,
-      playstyle
-    }
+    };
 
     ProfilesService.updateProfile(
       req.app.get('db'),
