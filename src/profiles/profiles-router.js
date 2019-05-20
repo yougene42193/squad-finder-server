@@ -84,9 +84,6 @@ profilesRouter
   .get((req, res, next) => {
     res.json(serializeProfile(res.profile));
   })
-  .post(jsonParser, (req, res, next) => {
-    
-  })
   .delete((req, res, next) => {
     ProfilesService.deleteProfile(
       req.app.get('db'),
