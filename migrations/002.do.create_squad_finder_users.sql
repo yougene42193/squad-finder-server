@@ -3,8 +3,3 @@ CREATE TABLE squad_finder_users (
     user_name TEXT NOT NULL UNIQUE,
     password TEXT NOT NULL
 );
-
-ALTER TABLE squad_finder_profiles
-    ADD COLUMN
-        user_id INTEGER REFERENCES squad_finder_users(id)
-        ON DELETE SET NULL;
